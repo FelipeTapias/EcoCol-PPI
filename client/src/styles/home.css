@@ -1,0 +1,65 @@
+.Home .container {
+  border-radius: 8px;
+  box-shadow: 0 10px 30px #00b300;
+  border: 1px solid yellow;
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0.1);
+  text-align: center;
+  color: white;
+  font-size: 18px;
+}
+
+.Home .ruleta {
+  position: fixed;
+}
+
+.Home .btn-ruleta {
+  position: absolute;
+  left: 1250px;
+  top: 400px;
+  background: transparent;
+  border: transparent;
+  border-radius: 5px;
+}
+
+.Home .img-ruleta {
+  width: 100px;
+  height: 100px;
+}
+
+.Home .imgPlace {
+  -webkit-transform: scale(1);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -ms-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+}
+
+.Home .imgPlace:hover {
+  transform: scale(1);
+  -ms-transform: scale(1.2);
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -o-transform: scale(1);
+}
+
+.Home .button-modal-traveler{
+  border-radius: 8px;
+  box-shadow: 0 10px 30px  #00b300ce;
+  border: 1px solid #004d00; 
+  background-color: rgba(2, 2, 2, 0.4); 
+  text-align: center;
+  color: white;
+} 
+
+.Home .button-modal-editor{
+  border-radius: 8px;
+  box-shadow: 0 10px 30px  #00b300ce;
+  border: 1px solid #004d00; 
+  background-color: rgba(2, 2, 2, 0.4); 
+  text-align: center;
+  color: white;
+  margin-inline: 20px;
+  width: 10%;
+} 

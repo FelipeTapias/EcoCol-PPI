@@ -1,0 +1,4 @@
+.ListPlacesToCreated .cardCreatePlace:hover {
+    box-shadow: 0 12px 23px #70db24;
+    transform: translateY(-10px);
+}

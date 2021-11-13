@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ee4e4a4c.chunk.css",
+    "main.js": "/static/js/main.476267d5.chunk.js",
+    "main.js.map": "/static/js/main.476267d5.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ffef64a6.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ffef64a6.js.map",
+    "static/css/2.eb4fc05e.chunk.css": "/static/css/2.eb4fc05e.chunk.css",
+    "static/js/2.f87259a7.chunk.js": "/static/js/2.f87259a7.chunk.js",
+    "static/js/2.f87259a7.chunk.js.map": "/static/js/2.f87259a7.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.eb4fc05e.chunk.css.map": "/static/css/2.eb4fc05e.chunk.css.map",
+    "static/css/main.ee4e4a4c.chunk.css.map": "/static/css/main.ee4e4a4c.chunk.css.map",
+    "static/js/2.f87259a7.chunk.js.LICENSE.txt": "/static/js/2.f87259a7.chunk.js.LICENSE.txt",
+    "static/media/ruleta.2fd9a7c5.png": "/static/media/ruleta.2fd9a7c5.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ffef64a6.js",
+    "static/css/2.eb4fc05e.chunk.css",
+    "static/js/2.f87259a7.chunk.js",
+    "static/css/main.ee4e4a4c.chunk.css",
+    "static/js/main.476267d5.chunk.js"
+  ]
+}

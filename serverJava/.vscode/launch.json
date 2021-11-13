@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-EcocolApplication<ecocol>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.ecocol.ecocol.EcocolApplication",
+            "projectName": "ecocol",
+            "args": ""
+        }
+    ]
+}

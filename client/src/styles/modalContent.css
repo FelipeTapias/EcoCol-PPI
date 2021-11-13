@@ -1,0 +1,17 @@
+.ModalContent .inputStart {
+    margin-right: 10px;
+}
+
+.ModalContent .inputEnd {
+    margin-left: 10px;
+}
+
+.carousel-item{
+    width: 900px;
+    height: 300px;
+}
+
+.carousel-inner{
+    width: "90%";
+    box-shadow: "0 20px 40px #70db24";
+}

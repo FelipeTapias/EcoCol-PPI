@@ -1,0 +1,53 @@
+.Navbar h4 {
+  color: white;
+}
+
+.Navbar .mydiv {
+  position: relative;
+  margin: 5% auto 0;
+  width: 60%;
+  height: 200px;
+  background: white;
+}
+
+.Navbar .animate-bg:before,
+.animate-bg:after {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: -10px;
+  background: linear-gradient(
+    120deg,
+    #79fb00,
+    #000000,
+    #031ba5,
+    #03ffc8,
+    #094201,
+    #04c2e4,
+    #adad02,
+    #fbff02
+  );
+  background-size: 300%;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
+  z-index: -1;
+  animation: BGgradient 15s ease infinite;
+}
+
+@keyframes BGgradient {
+  0% {
+    background-position: 0% 200%;
+  }
+  50% {
+    background-position: 200% 0%;
+  }
+  100% {
+    background-position: 0% 330%;
+  }
+}
+
+.Navbar .animate-bg:after {
+  filter: brightness(1.4);
+  filter: drop-shadow(16px 16px 20px rgb(16, 90, 14));
+  filter: blur(15px);
+}

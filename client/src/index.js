@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-
-//Import path
-// import { _SignUpTraveler, _HomeEditor, _HomeTraveler, _ListPlacesToCreated, _HomeGeneral, _SignUpEditor, _ErrorRoute } from "./config/path";
 import { routes } from "./config/path"
 
 //Styles

@@ -3,13 +3,10 @@ var InsertQuery = require('mysql-insert-multiple');
 const multer = require('multer');
 const path = require('path');
 const uuid = require('uuid/v4');
-
-
 const errorServer = (err) => {
     console.log(err)
     return res.status(500).json('Internal Server Error')
 }
-
 //Establecer el lugar de almacenamiento para las imagenes de las tarjetas
 const storage = multer.diskStorage({
     destination: path.join(__dirname, '../../client/public'),
@@ -17,7 +14,6 @@ const storage = multer.diskStorage({
         cb(null, uuid() + file.originalname);
     }
 })
-
 //Carga de imagen
 const uploadImg = multer({
     storage,
@@ -32,7 +28,6 @@ const uploadImg = multer({
         cb(new Error("Error: File upload only supports the following filetypes - " + filetypes));
     }
 }).single('img');
-
 module.exports = {
     getMain: (req, res) => {
         res
@@ -159,9 +154,5 @@ module.exports = {
         } catch (err) {
             console.log(err)
         }
-    },
-    getImages: async (req, res) => {
-        const response = await cnn_mysql.promise().execute("SELECT * FROM photoPlace");
-        return res.json(response[0]);
     }
 }

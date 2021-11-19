@@ -1,7 +1,6 @@
 const { Router } = require('express');
 const handleErrors = require('../error/handleErrors');
 const router = Router();
-
 const {
     getMain, 
     getAllPlaces,
@@ -11,8 +10,7 @@ const {
     updatePlace, 
     singIn,
     insertPlaces,
-    sendImg,
-    getImages
+    sendImg
 } = require('./controller'); 
 
 //Rutas del backend
@@ -25,6 +23,5 @@ router.post("/insertUser", insertUser);
 router.post('/singIn', singIn); 
 router.post('/insertPlaces',insertPlaces); 
 router.post('/sendImg', sendImg)
-router.get("/getAllImages", getImages);
 
 module.exports = router;

@@ -10,22 +10,13 @@ import _ from "lodash";
 const Home = () => {
   const [open, setOpen] = useState(false);
   const [places, setPlaces] = useState([]);
-  const [images, setImages] = useState([]);
   const [idPlaceSelect, setIdPlaceSelect] = useState([]);
 
   useLayoutEffect(() => {
-
-    axios
-      .get(`${URL_SERVER_NODE}/getAllPlaces`)
-      .then((res) => setPlaces(res.data))
-      .catch((err) => console.log(err));
-
-    axios
-      .get(`${URL_SERVER_NODE}/getAllImages`)
-      .then(res => setImages(res.data))
-      .catch(err => {
-        console.error(err);
-      });
+      axios
+        .get(`${URL_SERVER_NODE}/getAllPlaces`)
+        .then((res) => setPlaces(res.data))
+        .catch((err) => console.log(err));
   }, []);
 
   return places.length > 0 ? (
@@ -49,20 +40,15 @@ const Home = () => {
               style={{ color: "white" }}
               key={key}
             >
-              {/* {images.map((value, key) => {
-                return( 
-                <div className="divImgPlace" key={key}>
-                  <img
-                    className="float-start mx-3 mb-3 mt-5 imgPlace"
-                    src={value.photoPath}
-                    alt="imagen lugar"
-                    width="200"
-                    height="200"
-                  />
-                </div>
-                )
-              })} */}
-
+              <div className="divImgPlace">
+                <img
+                  className="float-start mx-3 mb-3 mt-5 imgPlace"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS82yDrhjKDPkonzkqy6Q9iFZOJMwR99n9qVA&usqp=CAU"
+                  alt="imagen lugar"
+                  width="200"
+                  height="200"
+                />
+              </div>
               <div className="float-end border border-white p-2 mt-5 mx-3">
                 <h5 className="mt-2" style={{ color: "white" }}>
                   ¿Visitaste el lugar?
@@ -90,10 +76,8 @@ const Home = () => {
           );
         })}
         {open && (
-          console.log(images),
           <ModalPlaceInfo
             places={places}
-            images={images}
             idPlaceSelect={idPlaceSelect}
             open={open}
             setOpen={setOpen}

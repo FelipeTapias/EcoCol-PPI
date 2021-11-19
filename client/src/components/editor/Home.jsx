@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState, useEffect } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { Modal } from "antd";
 import ModalContentEdit from "./ModalContentEdit";
 import ModalCreatePlace from "./ModalCreatePlace";
@@ -18,16 +18,6 @@ const Home = () => {
   const [places, setPlaces] = useState([]);
   const [idPlaceSelect, setIdPlaceSelect] = useState([]);
   const [dataPlaceToUpdate, setDataPlaceToUpdate] = useState({});
-  const [imageList, setImageList] = useState([]);
-
-  useEffect(()=>{
-    axios.get(`${URL_SERVER_NODE}/´getAllImages`)
-    .then(res => res.json())
-    .then(res => setImageList(res))
-    .catch(err => {
-      console.error(err);
-    });
-  });
 
   const getAllPlaces = () => {
     axios

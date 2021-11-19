@@ -5,8 +5,7 @@ import Home from '../../components/traveler/Home';
 import Footer from "../../components/Footer";
 
 const homeTraveler = () => {
-  console.log("abueno");
-  return(
+ return(
     <div>
       <Navbar />
       <Home />
@@ -15,4 +14,4 @@ const homeTraveler = () => {
  );
 }
 
-export default withRouter(homeTraveler); 
+export default withRouter(homeTraveler);

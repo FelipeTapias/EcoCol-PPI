@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BugOutlined,
   DollarCircleOutlined,
@@ -10,36 +10,17 @@ import {
 } from "@ant-design/icons";
 import { Tabs } from "antd";
 import { Modal } from "antd";
-import { URL_SERVER_NODE } from "../../config/urlServers";
-import axios from "axios";
 
-const ModalContent = ({ places, idPlaceSelect, open, setOpen, images }) => {
+const ModalContent = ({ places, idPlaceSelect, open, setOpen }) => {
   const TabPane = Tabs.TabPane;
   const [place, setPlace] = useState([]);
-  const [imagesPlaceSelect, setImagesPlaceSelect] = useState([]);
-
-  useLayoutEffect(() => {
-
-    /* 
-    axios.get(`${URL_SERVER_NODE}/getAllImages`)
-      .then(res => res.json())
-      .then(res => setImages(res))
-      .catch(err => {
-        console.error(err);
-      }); */
-
+  useEffect(() => {
     for (let i = 0; i < places.length; i++) {
       if (places[i].id === idPlaceSelect) {
         setPlace(places[i]);
-        console.log(images)
-        for (let j = 0; j < images.length; j++) {
-          console.log("a")
-          if (images[j].idPlace === places[i].id) {
-            setImagesPlaceSelect([...imagesPlaceSelect, images[j]])
-          }
-        }
+        return;
       }
-    } return;
+    }
   }, []);
   return (
     <Modal
@@ -64,21 +45,33 @@ const ModalContent = ({ places, idPlaceSelect, open, setOpen, images }) => {
           className="carousel-inner m-auto"
           style={{ width: "90%", boxShadow: "0 20px 40px #70db24" }}
         >
-          {imagesPlaceSelect.map((value, key) => {
-            return (
-              <div className="carousel-item active" key={key}>
-                <img
-                  src={value.photoPath}
-                  width="800"
-                  height="300"
-                  className="d-block w-100"
-                  alt="Aquí nace el rio Medellín"
-                />
-              </div>
-            )
-          })
-          }
-
+          <div className="carousel-item active">
+            <img
+              src="https://www.medellin.travel/wp-content/uploads/2020/06/Alto-San-Miguel.jpg"
+              width="800"
+              height="300"
+              className="d-block w-100"
+              alt="Aquí nace el rio Medellín"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="http://www.elmundo.com/images/ediciones/Lunes_30_12_2013/Lunes_30_12_2013@@SAN-MIGUEL-600.jpg"
+              width="800"
+              height="300"
+              className="d-block w-100"
+              alt="Clave para la biodiversidad"
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://cr00.epimg.net/emisora/imagenes/2016/10/05/medellin/1475693059_346276_1475693190_noticia_normal.jpg"
+              width="800"
+              height="300"
+              className="d-block w-100"
+              alt="Reserva forestal"
+            />
+          </div>
         </div>
         <button
           class="carousel-control-prev"

@@ -1,15 +1,15 @@
 import React, { useLayoutEffect, useState } from "react";
-import { Modal } from "antd";
-import ModalContentEdit from "./ModalContentEdit";
-import ModalCreatePlace from "./ModalCreatePlace";
-import "antd/dist/antd.css";
-import "../../styles/home.css";
+import swal from "sweetalert2";
 import axios from "axios";
-import { URL_SERVER_NODE } from "../../config/urlServers";
 import _ from "lodash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
-import swal from "sweetalert2";
+import { Modal } from "antd";
+import "antd/dist/antd.css";
+import "../../styles/home.css";
+import ModalContentEdit from "./ModalContentEdit";
+import ModalCreatePlace from "./ModalCreatePlace";
+import { URL_SERVER_NODE } from "../../config/urlServers";
 import { validateEditorRoutes } from "../../config/functionsForValidatedRoutes";
 
 const Home = () => {
@@ -31,8 +31,8 @@ const Home = () => {
   };
 
   useLayoutEffect(() => {
-    const validateRoutes = validateEditorRoutes(); 
-    if(validateRoutes === 500){
+    const validateRoutes = validateEditorRoutes();
+    if (validateRoutes === 500) {
       window.location.pathname = "/error-route";
     } else {
       getAllPlaces();
@@ -144,10 +144,11 @@ const Home = () => {
               <div className="divImgPlace">
                 <img
                   className="float-start mx-3 mb-3 mt-5 imgPlace"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS82yDrhjKDPkonzkqy6Q9iFZOJMwR99n9qVA&usqp=CAU"
+                  src={value.photosPlace[0] ? value.photosPlace[0].photoPath : '' }
                   alt="imagen lugar"
                   width="200"
                   height="200"
+                  style={{ objectFit: "cover" }}
                 />
               </div>
               <div className="float-end border border-white p-2 mt-5 mx-3">

@@ -17,7 +17,7 @@ public class RestControllerClass {
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/getPlaces")
     public Place[] getPlacesController() {
-        Fichero fichero =  new Fichero("C:/Users/Leisy/Documents/Poli/PPI/EcoCol/serverJava/ecocol/src/main/java/com/ecocol/ecocol/place.txt");
+        Fichero fichero =  new Fichero("C:/Users/Leisy/Documents/Poli/PPI-2/EcoCol-PPI/serverJava/ecocol/src/main/java/com/ecocol/ecocol/place.txt");
         ListPlace listPlace = ListPlace.convertToListPlace(fichero.getFile());
         return listPlace.showPlaces();
     }
@@ -25,7 +25,7 @@ public class RestControllerClass {
     @CrossOrigin(origins = "http://localhost:3000")
     @PostMapping(value = "/addPlace", consumes = "application/json", produces = "application/json")
     public int addNewPlace(@RequestBody Place place) {
-        Fichero fichero = new Fichero("C:/Users/Leisy/Documents/Poli/PPI/EcoCol/serverJava/ecocol/src/main/java/com/ecocol/ecocol/place.txt"); 
+        Fichero fichero = new Fichero("C:/Users/Leisy/Documents/Poli/PPI-2/EcoCol-PPI/serverJava/ecocol/src/main/java/com/ecocol/ecocol/place.txt"); 
         String placeData  = 
         place.id + "~" + 
         place.name + "~" + 
@@ -38,7 +38,9 @@ public class RestControllerClass {
         place.hours + "~" + 
         place.entryPrice + "~" + 
         place.fauna + "~" + 
-        place.flora;
+        place.flora + "~" +
+        place.photosPlace; 
+        System.out.println(placeData + place);
         fichero.WriteFile(placeData);
         return 200; 
     }
@@ -47,7 +49,7 @@ public class RestControllerClass {
     @GetMapping("/getPlace")
     @ResponseBody
     public Place getPlaceById(@RequestParam Long id) {
-        Fichero fichero =  new Fichero("C:/Users/Leisy/Documents/Poli/PPI/EcoCol/serverJava/ecocol/src/main/java/com/ecocol/ecocol/place.txt");
+        Fichero fichero =  new Fichero("C:/Users/Leisy/Documents/Poli/PPI-2/EcoCol-PPI/serverJava/ecocol/src/main/java/com/ecocol/ecocol/place.txt");
         ListPlace listPlace = ListPlace.convertToListPlace(fichero.getFile());
         Place response = listPlace.searchPlace(id);
         if(response == null)
@@ -58,7 +60,7 @@ public class RestControllerClass {
     @CrossOrigin(origins = "http://localhost:3000")
     @GetMapping("/deletePlaces")
     public int deleteAllPlaces() {
-        Fichero fichero =  new Fichero("C:/Users/Leisy/Documents/Poli/PPI/EcoCol/serverJava/ecocol/src/main/java/com/ecocol/ecocol/place.txt");
+        Fichero fichero =  new Fichero("C:/Users/Leisy/Documents/Poli/PPI-2/EcoCol-PPI/serverJava/ecocol/src/main/java/com/ecocol/ecocol/place.txt");
         fichero.DeteleFile();
         return 200; 
     }

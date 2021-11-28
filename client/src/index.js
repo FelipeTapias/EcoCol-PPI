@@ -4,8 +4,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { routes } from "./config/path"
 
 //Styles
-import './styles/body.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './styles/body.css'
 
 //Import pages
 import SignUpTraveler from "./pages/traveler/SignUp";

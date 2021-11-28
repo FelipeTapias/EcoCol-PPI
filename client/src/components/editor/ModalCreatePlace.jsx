@@ -5,9 +5,10 @@ import axios from "axios";
 import { URL_SERVER_NODE, URL_SERVER_JAVA } from "../../config/urlServers";
 import { PlusOutlined } from "@ant-design/icons";
 import _ from "lodash";
-import { validateEditorRoutes } from "../../config/functionsForValidatedRoutes";
 import swal from "sweetalert2";
+import { uploadImagePlace } from "../../config/firebase/uploadImages";
 
+//Mostrar imagen en el previsualizador
 function getBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -24,22 +25,8 @@ const ModalContentCreate = ({ open, setOpen }) => {
   const [previewImage, setPreviewImage] = useState("");
   const [previewTitle, setPreviewTitle] = useState("");
   const [fileList, setFileList] = useState([]);
+  const [images, setImages] = useState([]);
   const [idPlaceToCreated, setIdPlaceToCreated] = useState(4);
-
-  const handleCancel = () => setPreviewVisible(false);
-
-  const handlePreview = async (file) => {
-    if (!file.url && !file.preview) {
-      file.preview = await getBase64(file.originFileObj);
-    }
-    setPreviewImage(file.url || file.preview);
-    setPreviewVisible(true);
-    setPreviewTitle(
-      file.name || file.url.substring(file.url.lastIndexOf("/") + 1)
-    );
-  };
-
-  const handleChange = ({ fileList }) => setFileList(fileList);
 
   useEffect(() => {
     axios
@@ -51,6 +38,26 @@ const ModalContentCreate = ({ open, setOpen }) => {
         console.log(err);
       });
   }, []);
+
+  //Cierra el modal de previsualización de la imagen
+  const handleCancel = () => setPreviewVisible(false);
+
+  //Cargar la imagen para que se pueda previsualizar
+  const handlePreview = async (file) => {
+    if (!file.url && !file.preview) {
+      file.preview = await getBase64(file.originFileObj);
+    }
+    setPreviewImage(file.url || file.preview);
+    setPreviewVisible(true);
+    setPreviewTitle(
+      file.name || file.url.substring(file.url.lastIndexOf("/") + 1)
+    );
+  };
+
+  //Array de objetos con toda la información de las imagenes cargadas
+  const handleChange = ({ fileList }) => {
+    setFileList(fileList);
+  };
 
   const onChangeInputs = (e) => {
     setDataPlaceToCreate({
@@ -70,8 +77,12 @@ const ModalContentCreate = ({ open, setOpen }) => {
     </div>
   );
 
-  const createPlace = () => {
-    console.log(dataPlaceToCreate.description); 
+  const createPlace = async () => {
+    const photosPlace = [];
+    for (let i = 0; i < images.length; i++) {
+      const resFirebase = await uploadImagePlace(images[i]);
+      photosPlace.push(resFirebase);
+    }
     axios
       .post(`${URL_SERVER_JAVA}/addPlace`, {
         id: idPlaceToCreated,
@@ -86,12 +97,13 @@ const ModalContentCreate = ({ open, setOpen }) => {
         entryPrice: dataPlaceToCreate.entryPrice,
         flora: dataPlaceToCreate.flora,
         fauna: dataPlaceToCreate.fauna,
+        photosPlace: photosPlace.toString(),
       })
-      .then(res => {
-        setIdPlaceToCreated(idPlaceToCreated+1);
+      .then((res) => {
+        setIdPlaceToCreated(idPlaceToCreated + 1);
         window.location.pathname = "/list-places-to-created";
       })
-      .catch(err => {
+      .catch((err) => {
         swal.fire({
           icon: "error",
           title: "Error interno del servidor",
@@ -205,11 +217,23 @@ const ModalContentCreate = ({ open, setOpen }) => {
         <Col span={24}>
           <label className="mt-3 fs-6">Fotos del lugar</label>
           <Upload
-            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
             listType="picture-card"
             fileList={fileList}
             onPreview={handlePreview}
             onChange={handleChange}
+            onRemove={(file) => {
+              for (let i = 0; i < images.length; i++) {
+                if (images[i].uid === file.uid) {
+                  const newImages = images;
+                  newImages.splice(i);
+                  setImages(newImages);
+                }
+              }
+            }}
+            beforeUpload={(file) => {
+              setImages([...images, file]);
+              return false;
+            }}
           >
             {fileList.length >= 8 ? null : uploadButton}
           </Upload>

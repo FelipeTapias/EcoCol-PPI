@@ -13,13 +13,15 @@ public class Place {
     public String entryPrice;
     public String fauna;
     public String flora;
+    public String photosPlace;
 
     public Place() {
-        
+
     }
 
     public Place(Long id, String name, Long codeCity, Long hashCodeQR, String codeLocation, String description,
-            String recommendations, String address, String hours, String entryPrice, String fauna, String flora) {
+            String recommendations, String address, String hours, String entryPrice, String fauna, String flora,
+            String photosPlace) {
         this.id = id;
         this.name = name;
         this.codeCity = codeCity;
@@ -32,5 +34,6 @@ public class Place {
         this.entryPrice = entryPrice;
         this.fauna = fauna;
         this.flora = flora;
+        this.photosPlace = photosPlace;
     }
 }

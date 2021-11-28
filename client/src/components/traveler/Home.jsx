@@ -13,10 +13,10 @@ const Home = () => {
   const [idPlaceSelect, setIdPlaceSelect] = useState([]);
 
   useLayoutEffect(() => {
-      axios
-        .get(`${URL_SERVER_NODE}/getAllPlaces`)
-        .then((res) => setPlaces(res.data))
-        .catch((err) => console.log(err));
+    axios
+      .get(`${URL_SERVER_NODE}/getAllPlaces`)
+      .then((res) => setPlaces(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   return places.length > 0 ? (
@@ -43,7 +43,10 @@ const Home = () => {
               <div className="divImgPlace">
                 <img
                   className="float-start mx-3 mb-3 mt-5 imgPlace"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS82yDrhjKDPkonzkqy6Q9iFZOJMwR99n9qVA&usqp=CAU"
+                  src={
+                    value.photosPlace[0] ? value.photosPlace[0].photoPath : ""
+                  }
+                  style={{ objectFit: "cover" }}
                   alt="imagen lugar"
                   width="200"
                   height="200"

@@ -58,6 +58,9 @@ const ListPlacesToCreated = () => {
       })
       .then((result) => {
         if (result.isConfirmed) {
+          for(let i = 0; i < places.length; i++){
+            places[i].photosPlaces = places[i].photosPlaces.split(",")
+          }
           axios
             .post(`${URL_SERVER_NODE}/insertPlaces`, { data: places })
             .then((res) => {

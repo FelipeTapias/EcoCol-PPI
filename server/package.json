@@ -23,7 +23,7 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.3",
     "mysql-insert-multiple": "^1.0.4",
-    "mysql2": "^2.2.5",
+    "mysql2": "^2.3.3",
     "oracledb": "^5.2.0",
     "path": "^0.12.7",
     "uuid": "^3.4.0"

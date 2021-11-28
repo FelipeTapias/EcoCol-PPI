@@ -53,7 +53,8 @@ public class ListPlace {
                     itemsPlace[8], 
                     itemsPlace[9], 
                     itemsPlace[10], 
-                    itemsPlace[11]
+                    itemsPlace[11], 
+                    itemsPlace[12]
                 )
             );
         }

@@ -45,15 +45,31 @@ const ModalContent = ({ places, idPlaceSelect, open, setOpen }) => {
           className="carousel-inner m-auto"
           style={{ width: "90%", boxShadow: "0 20px 40px #70db24" }}
         >
-          <div className="carousel-item active">
-            <img
-              src="https://www.medellin.travel/wp-content/uploads/2020/06/Alto-San-Miguel.jpg"
-              width="800"
-              height="300"
-              className="d-block w-100"
-              alt="Aquí nace el rio Medellín"
-            />
-          </div>
+          {place.photosPlace &&
+            place.photosPlace.map((value, index) =>
+              !index ? (
+                <div className="carousel-item active">
+                  <img
+                    src={value.photoPath}
+                    width="600"
+                    height="300"
+                    className="d-block w-100"
+                    alt="img place"
+                  />
+                </div>
+              ) : (
+                <div className="carousel-item">
+                  <img
+                    src={value.photoPath}
+                    width="500"
+                    height="300"
+                    className="d-block w-100"
+                    alt="img place"
+                  />
+                </div>
+              )
+            )}
+
           <div class="carousel-item">
             <img
               src="http://www.elmundo.com/images/ediciones/Lunes_30_12_2013/Lunes_30_12_2013@@SAN-MIGUEL-600.jpg"

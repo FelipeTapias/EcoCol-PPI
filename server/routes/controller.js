@@ -154,5 +154,8 @@ module.exports = {
         } catch (err) {
             console.log(err)
         }
+    },
+    testPrueba: (a,b) => {
+        return a+b;
     }
 }

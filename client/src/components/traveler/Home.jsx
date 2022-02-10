@@ -19,6 +19,13 @@ const Home = () => {
         .catch((err) => console.log(err));
   }, []);
 
+  const filterPlacesByName = async (name) =>{
+    await axios
+      .post(`${URL_SERVER_NODE}/getPlacesByName`,{name})
+      .then((res) => setPlaces(res.data))
+      .catch((err) => console.log(err));
+  }
+
   return places.length > 0 ? (
     <div className="Home">
       <div className="ruleta">
@@ -31,6 +38,9 @@ const Home = () => {
         type="search"
         placeholder="Buscar"
         aria-label="Buscar"
+        onChange={ async (e)=>{
+          filterPlacesByName(e.target.value)
+        }}
       />
       <div>
         {places.map((value, key) => {

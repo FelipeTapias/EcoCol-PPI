@@ -26,6 +26,7 @@ const ModalContent = ({ places, idPlaceSelect, open, setOpen }) => {
     <Modal
       title={<b>Información del lugar</b>}
       visible={open}
+      maskStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.719)' }}
       style={{ top: 50 }}
       onCancel={() => setOpen(false)}
       confirmLoading
@@ -43,7 +44,6 @@ const ModalContent = ({ places, idPlaceSelect, open, setOpen }) => {
       >
         <div
           className="carousel-inner m-auto"
-          style={{ width: "90%", boxShadow: "0 20px 40px #70db24" }}
         >
           <div className="carousel-item active">
             <img

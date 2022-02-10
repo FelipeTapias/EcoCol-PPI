@@ -157,5 +157,26 @@ module.exports = {
     },
     testPrueba: (a,b) => {
         return a+b;
+    },
+    filterPlacesByName: async (req,res) => {
+        const { name } = req.body;
+        const resPlace = await cnn_mysql.promise().execute(`SELECT * FROM place
+        WHERE LOWER(name) LIKE '%${name.toLowerCase()}%'`)
+        const infoPlaces = resPlace[0]
+        for (let i = 0; i < infoPlaces.length; i++) {
+            const resPhotoPlace = await cnn_mysql
+            .promise()
+            .execute('SELECT * FROM photoPlace WHERE idPlace = ?', [
+            infoPlaces[i].id
+            ])
+            if (resPhotoPlace) {
+                const infoPhotoPlace = resPhotoPlace[0]
+                const arrayPhotosPlace = []
+                for (let j = 0; j < infoPhotoPlace.length; j++)
+                arrayPhotosPlace.push(infoPhotoPlace[j])
+                infoPlaces[i].photosPlace = arrayPhotosPlace
+            }
+        }
+        return res.json(infoPlaces)
     }
 }

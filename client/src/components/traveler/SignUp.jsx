@@ -76,18 +76,11 @@ const SignUp = () => {
             </div>
             <div className="w-50 m-auto mb-3">
               <label>Contraseña</label>
-              <Tooltip
-                title="Asegúrese de que tenga al menos 8 caracteres, incluido un número y una letra minúscula."
-                placement="right"
-                color="green"
-                key="#87d068"
-              >
                 <Input
                   name="password"
                   type="password"
                   onChange={onChangeInputs}
                 />
-              </Tooltip>
             </div>
             {/*<div className="w-50 m-auto mb-3">
               <label>Confirmar contraseña</label>

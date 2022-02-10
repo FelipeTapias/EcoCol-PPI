@@ -1,10 +1,9 @@
 .Home .container {
   border-radius: 8px;
-  box-shadow: 0 10px 30px #00b300;
-  border: 1px solid yellow;
+  border: 1px solid white;
   -webkit-backdrop-filter: blur(15px);
   backdrop-filter: blur(10px);
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.692);
   text-align: center;
   color: white;
   font-size: 18px;
@@ -46,18 +45,34 @@
 
 .Home .button-modal-traveler{
   border-radius: 8px;
-  box-shadow: 0 10px 30px  #00b300ce;
-  border: 1px solid #004d00; 
+  border: 1px solid #fa6611; 
   background-color: rgba(2, 2, 2, 0.4); 
+  text-align: center;
+  color: white;
+} 
+
+.Home .button-modal-traveler:hover{
+  border-radius: 8px;
+  border: 1px solid white; 
+  background-color: #fa6611; 
   text-align: center;
   color: white;
 } 
 
 .Home .button-modal-editor{
   border-radius: 8px;
-  box-shadow: 0 10px 30px  #00b300ce;
-  border: 1px solid #004d00; 
+  border: 1px solid #fa6611; 
   background-color: rgba(2, 2, 2, 0.4); 
+  text-align: center;
+  color: white;
+  margin-inline: 20px;
+  width: 10%;
+} 
+
+.Home .button-modal-editor:hover{
+  border-radius: 8px;
+  border: 1px solid white; 
+  background-color: #fa6611; 
   text-align: center;
   color: white;
   margin-inline: 20px;

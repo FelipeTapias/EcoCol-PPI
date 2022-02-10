@@ -1,11 +1,11 @@
 .container {
     border-radius: 8px;
-    box-shadow: 0 10px 30px #00b300;
-    border: 1px solid yellow;
+    border: 1px solid white;
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.692);
     text-align: center;
     color: white;
     font-size: 18px;
-}
+}   
+

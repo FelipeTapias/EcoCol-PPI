@@ -130,7 +130,7 @@ const ModalContentCreate = ({ open, setOpen }) => {
         </Col>
         <Col span={12}>
           <div className="inputEnd">
-            <label className="mt-3 fs-6">Ciudad de ubicación</label>
+            <label className="mt-3 fs-6">Municipio de ubicación</label>
             <Select
               placeholder="Buscar para seleccionar"
               showSearch

@@ -10,7 +10,8 @@ const {
     updatePlace, 
     singIn,
     insertPlaces,
-    sendImg
+    sendImg,
+    filterPlacesByName
 } = require('./controller'); 
 
 //Rutas del backend
@@ -22,6 +23,7 @@ router.put('/updatePlace',updatePlace);
 router.post("/insertUser", insertUser);
 router.post('/singIn', singIn); 
 router.post('/insertPlaces',insertPlaces); 
-router.post('/sendImg', sendImg)
+router.post('/sendImg', sendImg);
+router.post('/getPlacesByName',filterPlacesByName);
 
 module.exports = router;

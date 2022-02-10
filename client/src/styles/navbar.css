@@ -18,14 +18,10 @@
   top: -10px;
   background: linear-gradient(
     120deg,
-    #79fb00,
+    #fa6611,
     #000000,
     #031ba5,
-    #03ffc8,
-    #094201,
-    #04c2e4,
-    #adad02,
-    #fbff02
+    #094201
   );
   background-size: 300%;
   width: calc(100% + 16px);

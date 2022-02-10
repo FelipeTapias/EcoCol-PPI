@@ -123,7 +123,7 @@ const ModalContent = ({
         </Col>
         <Col span={12}>
           <div className="inputEnd">
-            <label className="mt-3 fs-6">Ciudad de ubicación</label>
+            <label className="mt-3 fs-6">Municipio de ubicación</label>
             <Select
               defaultValue={placeToEdit.codeCity}
               placeholder="Buscar para seleccionar"

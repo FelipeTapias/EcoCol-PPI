@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "idPlace": 91,
+    "photoPath": "https://cdn.pixabay.com/photo/2014/09/07/22/17/forest-438432__340.jpg",
+    "firstPhoto": true
+  },
+  {
+    "id": 2,
+    "idPlace": 91,
+    "photoPath": "https://cdn.pixabay.com/photo/2020/09/01/21/03/sunset-5536777__340.jpg",
+    "firstPhoto": false
+  },
+  {
+    "id": 3,
+    "idPlace": 91,
+    "photoPath": "https://cdn.pixabay.com/photo/2014/09/21/17/56/mountaineering-455338__340.jpg",
+    "firstPhoto": false
+  },
+  {
+    "id": 4,
+    "idPlace": 92,
+    "photoPath": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS82yDrhjKDPkonzkqy6Q9iFZOJMwR99n9qVA&usqp=CAU",
+    "firstPhoto": true
+  },
+  {
+    "id": 5,
+    "idPlace": 92,
+    "photoPath": "https://www.medellin.travel/wp-content/uploads/2020/06/Alto-San-Miguel.jpg",
+    "firstPhoto": false
+  },
+  {
+    "id": 6,
+    "idPlace": 92,
+    "photoPath": "https://cr00.epimg.net/emisora/imagenes/2016/10/05/medellin/1475693059_346276_1475693190_noticia_normal.jpg",
+    "firstPhoto": false
+  },
+  {
+    "id": 7,
+    "idPlace": 93,
+    "photoPath": "https://www.elcolombiano.com/binrepository/843x562/0c0/0d0/none/11101/MUUR/cparque-arvi12-23_37413650_20210324185015.jpg",
+    "firstPhoto": true
+  },
+  {
+    "id": 8,
+    "idPlace": 93,
+    "photoPath": "https://cdn.pixabay.com/photo/2018/04/06/00/25/trees-3294681__340.jpg",
+    "firstPhoto": false
+  },
+  {
+    "id": 9,
+    "idPlace": 93,
+    "photoPath": "https://cdn.pixabay.com/photo/2016/09/19/07/01/lake-1679708__340.jpg",
+    "firstPhoto": false
+  },
+  {
+    "id": 10,
+    "idPlace": 95,
+    "photoPath": "https://www.metropol.gov.co/planeacion/areas-protegidas/PublishingImages/Paginas/APU/PNRM-Cerro-El-Volador/area-3.jpg",
+    "firstPhoto": true
+  },
+  {
+    "id": 11,
+    "idPlace": 95,
+    "photoPath": "https://www.metropol.gov.co/planeacion/areas-protegidas/PublishingImages/Paginas/AP/PNRM-Cerro-El-Volador/AP-Volador.jpg",
+    "firstPhoto": false
+  },
+  {
+    "id": 12,
+    "idPlace": 95,
+    "photoPath": "https://cdn.pixabay.com/photo/2021/11/03/12/28/forest-6765636__340.jpg",
+    "firstPhoto": false
+  }
+]

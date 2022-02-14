@@ -10,6 +10,7 @@ import {
 } from "@ant-design/icons";
 import { Tabs } from "antd";
 import { Modal } from "antd";
+import photosPlaces from "../list_photos.json";
 
 const ModalContent = ({ places, idPlaceSelect, open, setOpen }) => {
   const TabPane = Tabs.TabPane;
@@ -26,7 +27,7 @@ const ModalContent = ({ places, idPlaceSelect, open, setOpen }) => {
     <Modal
       title={<b>Información del lugar</b>}
       visible={open}
-      maskStyle={{ backgroundColor: 'rgba(0, 0, 0, 0.719)' }}
+      maskStyle={{ backgroundColor: "rgba(0, 0, 0, 0.719)" }}
       style={{ top: 50 }}
       onCancel={() => setOpen(false)}
       confirmLoading
@@ -39,38 +40,29 @@ const ModalContent = ({ places, idPlaceSelect, open, setOpen }) => {
       </b>
       <div
         id="carouselExampleControls"
-        className="carousel slide"
+        className="carousel slide w-75 m-auto"
         data-bs-ride="carousel"
       >
-        <div
-          className="carousel-inner m-auto"
-        >
-          <div className="carousel-item active">
-            <img
-              src="https://www.medellin.travel/wp-content/uploads/2020/06/Alto-San-Miguel.jpg"
-              width="800"
-              height="300"
-              className="d-block w-100"
-              alt="Aquí nace el rio Medellín"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="http://www.elmundo.com/images/ediciones/Lunes_30_12_2013/Lunes_30_12_2013@@SAN-MIGUEL-600.jpg"
-              width="800"
-              height="300"
-              className="d-block w-100"
-              alt="Clave para la biodiversidad"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://cr00.epimg.net/emisora/imagenes/2016/10/05/medellin/1475693059_346276_1475693190_noticia_normal.jpg"
-              width="800"
-              height="300"
-              className="d-block w-100"
-              alt="Reserva forestal"
-            />
+        <div className="carousel-inner m-auto">
+          <div className="carousel-inner m-auto">
+            {photosPlaces.map(
+              (photo, key) =>
+                photo.idPlace === place.id && (
+                  <div
+                    className={
+                      photo.firstPhoto ? `carousel-item active` : `carousel-item`
+                    }
+                  >
+                    <img
+                      src={photo.photoPath}
+                      width="700"
+                      height="300"
+                      className="d-block w-100"
+                      alt="imagen"
+                    />
+                  </div>
+                )
+            )}
           </div>
         </div>
         <button

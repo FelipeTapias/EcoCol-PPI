@@ -6,6 +6,7 @@ import "../../styles/home.css";
 import axios from "axios";
 import { URL_SERVER_NODE } from "../../config/urlServers";
 import _ from "lodash";
+import photoPlaces from "../list_photos.json";
 
 const Home = () => {
   const [open, setOpen] = useState(false);
@@ -13,18 +14,18 @@ const Home = () => {
   const [idPlaceSelect, setIdPlaceSelect] = useState([]);
 
   useLayoutEffect(() => {
-      axios
-        .get(`${URL_SERVER_NODE}/getAllPlaces`)
-        .then((res) => setPlaces(res.data))
-        .catch((err) => console.log(err));
-  }, []);
-
-  const filterPlacesByName = async (name) =>{
-    await axios
-      .post(`${URL_SERVER_NODE}/getPlacesByName`,{name})
+    axios
+      .get(`${URL_SERVER_NODE}/getAllPlaces`)
       .then((res) => setPlaces(res.data))
       .catch((err) => console.log(err));
-  }
+  }, []);
+
+  const filterPlacesByName = async (name) => {
+    await axios
+      .post(`${URL_SERVER_NODE}/getPlacesByName`, { name })
+      .then((res) => setPlaces(res.data))
+      .catch((err) => console.log(err));
+  };
 
   return places.length > 0 ? (
     <div className="Home">
@@ -38,8 +39,8 @@ const Home = () => {
         type="search"
         placeholder="Buscar"
         aria-label="Buscar"
-        onChange={ async (e)=>{
-          filterPlacesByName(e.target.value)
+        onChange={async (e) => {
+          filterPlacesByName(e.target.value);
         }}
       />
       <div>
@@ -50,15 +51,21 @@ const Home = () => {
               style={{ color: "white" }}
               key={key}
             >
-              <div className="divImgPlace">
-                <img
-                  className="float-start mx-3 mb-3 mt-5 imgPlace"
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS82yDrhjKDPkonzkqy6Q9iFZOJMwR99n9qVA&usqp=CAU"
-                  alt="imagen lugar"
-                  width="200"
-                  height="200"
-                />
-              </div>
+              {photoPlaces.map((photo) => (
+                <div className="divImgPlace">
+                  {
+                    photo.firstPhoto && photo.idPlace == value.id  && 
+                    (<img
+                    className="float-start mx-3 mb-3 mt-5 imgPlace"
+                    src={photo.photoPath}
+                    alt="imagen lugar"
+                    width="200"
+                    height="200"
+                  />)
+                  }
+                </div>
+              ))}
+
               <div className="float-end border border-white p-2 mt-5 mx-3">
                 <h5 className="mt-2" style={{ color: "white" }}>
                   ¿Visitaste el lugar?

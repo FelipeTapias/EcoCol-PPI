@@ -71,7 +71,6 @@ const ModalContentCreate = ({ open, setOpen }) => {
   );
 
   const createPlace = () => {
-    console.log(dataPlaceToCreate.description); 
     axios
       .post(`${URL_SERVER_JAVA}/addPlace`, {
         id: idPlaceToCreated,

@@ -25,3 +25,6 @@ app.set('port', process.env.SERVER_PORT || 5001);
 app.listen(app.get('port'), () => {
     console.log(`Running on port ${app.get('port')}!`);
 });
+
+//Export
+module.exports = app;

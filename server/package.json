@@ -14,12 +14,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "faker": "^5.2.0",
     "jest": "^27.5.1",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.3"
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "cors": "^2.8.5",
+    "dateformat": "^5.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
@@ -29,5 +32,11 @@
     "oracledb": "^5.2.0",
     "path": "^0.12.7",
     "uuid": "^3.4.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }

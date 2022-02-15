@@ -65,7 +65,7 @@ describe('Backend controller EcoCol Test suite (core module)', () => {
             expect(res.text).toEqual('\"Place delete successfully\"');
     });
 
-    it('Verificar eliminación de un lugar', async() => {
+    it('Verificar obtención de un lugar', async() => {
         const res = await request(app)
             .get('/api/getAllPlaces')
             .send();

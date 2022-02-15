@@ -69,7 +69,7 @@ module.exports = {
                         id
                     ]
                 )
-            return res.status(200).json('Place update successfully')
+            return res.status(200).json('Place updated successfully')
         } catch (err) {
             errorServer(err, res)
         }

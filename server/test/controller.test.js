@@ -56,5 +56,21 @@ describe('Backend controller EcoCol Test suite (core module)', () => {
             expect(res.res.statusCode).toEqual(200);
             expect(res.text).toEqual('\"Place updated successfully\"');
     });
+
+    it('Verificar eliminación de un lugar', async() => {
+        const res = await request(app)
+            .delete('/api/deletePlace')
+            .send({"id": 126});
+            expect(res.res.statusCode).toEqual(200);
+            expect(res.text).toEqual('\"Place delete successfully\"');
+    });
+
+    it('Verificar eliminación de un lugar', async() => {
+        const res = await request(app)
+            .get('/api/getAllPlaces')
+            .send();
+            console.log(res.res.statusCode);
+            expect(res.res.statusCode).toEqual(200);
+    });
     
 });

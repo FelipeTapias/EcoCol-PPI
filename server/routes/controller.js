@@ -75,7 +75,6 @@ module.exports = {
         }
     },
     deletePlace: async (req, res) => {
-        console.log(req.body)
         try {
             const response = await cnn_mysql
                 .promise()
